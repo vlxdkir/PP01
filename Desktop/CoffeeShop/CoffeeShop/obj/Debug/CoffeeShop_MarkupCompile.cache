@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Gigabyte\source\repos\CoffeeShop\CoffeeShop\obj\Debug\
+C:\Users\Gigabyte\source\repos\PP01\Desktop\CoffeeShop\CoffeeShop\obj\Debug\
 CoffeeShop
 none
 false
 DEBUG;TRACE
-C:\Users\Gigabyte\source\repos\CoffeeShop\CoffeeShop\App.xaml
+C:\Users\Gigabyte\source\repos\PP01\Desktop\CoffeeShop\CoffeeShop\App.xaml
 27-407735968
 2-1957146511
 56919437759
-13994212967
+1391454925006
 MainWindow.xaml;styles\style.xaml;Views\Admin\AdminWindowForm.xaml;Views\Admin\Main\AdminMainPage.xaml;Views\Admin\Main\AdminMainWindow.xaml;Views\Admin\Main\Employes\ManageStaffPage.xaml;Views\Admin\ProductAdmin\ManageProduct.xaml;Views\Admin\StockAdmin\NewCategoryDialog.xaml;Views\Admin\StockAdmin\StockAdminPage.xaml;Views\Admin\Suppliers\ManageSuppliersPage.xaml;Views\Cashier\AddProductPage.xaml;Views\Cashier\AddRecipeDialog.xaml;Views\Cashier\CashierMainPage.xaml;Views\Cashier\CashierWindowForm.xaml;Views\Cashier\OrderReceiptPage.xaml;Views\Cashier\PersonalPage.xaml;Views\Cashier\ReceiveSupplyPage.xaml;Views\Cashier\SearchReceiptWindow.xaml;Views\Cashier\StockManagementPage.xaml;Views\Cashier\TehCardPage.xaml;Views\Cashier\ViewSalesPage.xaml;Views\Cashier\ViewStockPage.xaml;Views\LoginForm.xaml;Views\ReportsPage\ReportPage.xaml;Views\ReportsPage\RevenueReportPage.xaml;Views\ReportsPage\StockReportPage.xaml;Views\ReportsPage\SupplyReportPage.xaml;
 
-False
+True
 
