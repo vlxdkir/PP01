@@ -1,0 +1,52 @@
+﻿<Page x:Class="CoffeeShop.Views.Cashier.CashierMainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CoffeeShop.Views.Cashier"
+        mc:Ignorable="d"
+        Title="CashierMainPage" Height="450" Width="800">
+    <Grid>
+        
+        <Grid Margin="5" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="0" Background="#6A1B9A"  VerticalAlignment="Top" Height="100">
+                <TextBlock Text="ИНФОРМАЦИЯ" FontSize="24" Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock  Text="Менеджер"  FontSize="14" Foreground="White" Margin="0 0 0 0" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="FIO" Text=""  FontSize="14" Foreground="White" Margin="0 0 0 0" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="ShiftStatus" Text="" FontSize="14" Foreground="White" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <Button Content="Закрыть личную смену" Grid.Row="1" Grid.Column="0" Margin="5" Style="{StaticResource ButtonStyle}" Click="ClosePersonalShift_Click"/>
+            <Button Content="Личная страница" Grid.Row="2" Grid.Column="0" Margin="5" Style="{StaticResource ButtonStyle}" Click="PersonalPage_Click"/>
+            
+
+            <StackPanel Grid.Row="0" Grid.Column="1" Background="#009688"  VerticalAlignment="Top" Height="100">
+                <TextBlock Text="КАССА" FontSize="24" Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock Text="Фискальный регистратор кассового сервера" FontSize="14" Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="ShiftKassa" Text=""  FontSize="14" Foreground="White" Margin="0 0 0 10" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="FIOKassa" Text=""  FontSize="14" Foreground="White" Margin="0 0 0 10" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <Button Content="Открыть кассовую смену" Grid.Row="1" Grid.Column="1" Margin="5" Style="{StaticResource ButtonStyle}" Click="OpenShift_Click" />
+            <Button Content="Закрыть кассовую смену" Grid.Row="2" Grid.Column="1" Margin="5" Style="{StaticResource ButtonStyle}" Click="CloseShift_Click"/>
+            <Button Content="Поиск Чека" Grid.Row="3" Grid.Column="1" Margin="5" Style="{StaticResource ButtonStyle}" Click="SearchReceipt_Click"/>
+            <Button Content="Гости(не реализовано)" Grid.Row="5" Grid.Column="1" Margin="5" Style="{StaticResource ButtonStyle}" />
+
+
+            
+            
+        </Grid>
+    </Grid>
+</Page>

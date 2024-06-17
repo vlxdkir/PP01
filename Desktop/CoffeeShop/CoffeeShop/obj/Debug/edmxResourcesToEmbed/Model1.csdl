@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CoffeeShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CoffeeShopEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(CoffeeShopModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(CoffeeShopModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Employees" EntityType="CoffeeShopModel.Employees" />
+    <EntitySet Name="Product" EntityType="CoffeeShopModel.Product" />
+    <EntitySet Name="Purchases" EntityType="CoffeeShopModel.Purchases" />
+    <EntitySet Name="ReceiptItems" EntityType="CoffeeShopModel.ReceiptItems" />
+    <EntitySet Name="Receipts" EntityType="CoffeeShopModel.Receipts" />
+    <EntitySet Name="RecipeCards" EntityType="CoffeeShopModel.RecipeCards" />
+    <EntitySet Name="Sales" EntityType="CoffeeShopModel.Sales" />
+    <EntitySet Name="Shifts" EntityType="CoffeeShopModel.Shifts" />
+    <EntitySet Name="Stock" EntityType="CoffeeShopModel.Stock" />
+    <EntitySet Name="Suppliers" EntityType="CoffeeShopModel.Suppliers" />
+    <EntitySet Name="sysdiagrams" EntityType="CoffeeShopModel.sysdiagrams" />
+    <AssociationSet Name="FK__Shifts__Employee__71D1E811" Association="CoffeeShopModel.FK__Shifts__Employee__71D1E811">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Shifts" EntitySet="Shifts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Purchases__Produ__6C190EBB" Association="CoffeeShopModel.FK__Purchases__Produ__6C190EBB">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Purchases" EntitySet="Purchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ReceiptIt__Produ__787EE5A0" Association="CoffeeShopModel.FK__ReceiptIt__Produ__787EE5A0">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ReceiptItems" EntitySet="ReceiptItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RecipeCar__Produ__09A971A2" Association="CoffeeShopModel.FK__RecipeCar__Produ__09A971A2">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="RecipeCards" EntitySet="RecipeCards" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__ProductID__6EF57B66" Association="CoffeeShopModel.FK__Sales__ProductID__6EF57B66">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Stock__ProductID__656C112C" Association="CoffeeShopModel.FK__Stock__ProductID__656C112C">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Purchases__Suppl__6B24EA82" Association="CoffeeShopModel.FK__Purchases__Suppl__6B24EA82">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="Purchases" EntitySet="Purchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ReceiptIt__Recei__778AC167" Association="CoffeeShopModel.FK__ReceiptIt__Recei__778AC167">
+      <End Role="Receipts" EntitySet="Receipts" />
+      <End Role="ReceiptItems" EntitySet="ReceiptItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Receipts__ShiftI__74AE54BC" Association="CoffeeShopModel.FK__Receipts__ShiftI__74AE54BC">
+      <End Role="Shifts" EntitySet="Shifts" />
+      <End Role="Receipts" EntitySet="Receipts" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Position" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Pincode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Shifts" Relationship="CoffeeShopModel.FK__Shifts__Employee__71D1E811" FromRole="Employees" ToRole="Shifts" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Purchases" Relationship="CoffeeShopModel.FK__Purchases__Produ__6C190EBB" FromRole="Product" ToRole="Purchases" />
+    <NavigationProperty Name="ReceiptItems" Relationship="CoffeeShopModel.FK__ReceiptIt__Produ__787EE5A0" FromRole="Product" ToRole="ReceiptItems" />
+    <NavigationProperty Name="RecipeCards" Relationship="CoffeeShopModel.FK__RecipeCar__Produ__09A971A2" FromRole="Product" ToRole="RecipeCards" />
+    <NavigationProperty Name="Sales" Relationship="CoffeeShopModel.FK__Sales__ProductID__6EF57B66" FromRole="Product" ToRole="Sales" />
+    <NavigationProperty Name="Stock" Relationship="CoffeeShopModel.FK__Stock__ProductID__656C112C" FromRole="Product" ToRole="Stock" />
+  </EntityType>
+  <EntityType Name="Purchases">
+    <Key>
+      <PropertyRef Name="PurchaseID" />
+    </Key>
+    <Property Name="PurchaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="PurchaseDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product" Relationship="CoffeeShopModel.FK__Purchases__Produ__6C190EBB" FromRole="Purchases" ToRole="Product" />
+    <NavigationProperty Name="Suppliers" Relationship="CoffeeShopModel.FK__Purchases__Suppl__6B24EA82" FromRole="Purchases" ToRole="Suppliers" />
+  </EntityType>
+  <EntityType Name="ReceiptItems">
+    <Key>
+      <PropertyRef Name="ReceiptItemID" />
+    </Key>
+    <Property Name="ReceiptItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReceiptID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="Product" Relationship="CoffeeShopModel.FK__ReceiptIt__Produ__787EE5A0" FromRole="ReceiptItems" ToRole="Product" />
+    <NavigationProperty Name="Receipts" Relationship="CoffeeShopModel.FK__ReceiptIt__Recei__778AC167" FromRole="ReceiptItems" ToRole="Receipts" />
+  </EntityType>
+  <EntityType Name="Receipts">
+    <Key>
+      <PropertyRef Name="ReceiptID" />
+    </Key>
+    <Property Name="ReceiptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShiftID" Type="Int32" Nullable="false" />
+    <Property Name="ReceiptDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TotalAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="IsPaid" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ReceiptItems" Relationship="CoffeeShopModel.FK__ReceiptIt__Recei__778AC167" FromRole="Receipts" ToRole="ReceiptItems" />
+    <NavigationProperty Name="Shifts" Relationship="CoffeeShopModel.FK__Receipts__ShiftI__74AE54BC" FromRole="Receipts" ToRole="Shifts" />
+  </EntityType>
+  <EntityType Name="RecipeCards">
+    <Key>
+      <PropertyRef Name="RecipeCardID" />
+    </Key>
+    <Property Name="RecipeCardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Product" Relationship="CoffeeShopModel.FK__RecipeCar__Produ__09A971A2" FromRole="RecipeCards" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="SaleID" />
+    </Key>
+    <Property Name="SaleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="SaleDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="Product" Relationship="CoffeeShopModel.FK__Sales__ProductID__6EF57B66" FromRole="Sales" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Shifts">
+    <Key>
+      <PropertyRef Name="ShiftID" />
+    </Key>
+    <Property Name="ShiftID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Precision="7" />
+    <Property Name="EndTime" Type="DateTime" Precision="7" />
+    <NavigationProperty Name="Employees" Relationship="CoffeeShopModel.FK__Shifts__Employee__71D1E811" FromRole="Shifts" ToRole="Employees" />
+    <NavigationProperty Name="Receipts" Relationship="CoffeeShopModel.FK__Receipts__ShiftI__74AE54BC" FromRole="Shifts" ToRole="Receipts" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="StockID" />
+    </Key>
+    <Property Name="StockID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="CoffeeShopModel.FK__Stock__ProductID__656C112C" FromRole="Stock" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Purchases" Relationship="CoffeeShopModel.FK__Purchases__Suppl__6B24EA82" FromRole="Suppliers" ToRole="Purchases" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__Shifts__Employee__71D1E811">
+    <End Type="CoffeeShopModel.Employees" Role="Employees" Multiplicity="1" />
+    <End Type="CoffeeShopModel.Shifts" Role="Shifts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Shifts">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Purchases__Produ__6C190EBB">
+    <End Type="CoffeeShopModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="CoffeeShopModel.Purchases" Role="Purchases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Purchases">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ReceiptIt__Produ__787EE5A0">
+    <End Type="CoffeeShopModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="CoffeeShopModel.ReceiptItems" Role="ReceiptItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ReceiptItems">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RecipeCar__Produ__09A971A2">
+    <End Type="CoffeeShopModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="CoffeeShopModel.RecipeCards" Role="RecipeCards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="RecipeCards">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__ProductID__6EF57B66">
+    <End Type="CoffeeShopModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="CoffeeShopModel.Sales" Role="Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Stock__ProductID__656C112C">
+    <End Type="CoffeeShopModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="CoffeeShopModel.Stock" Role="Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Purchases__Suppl__6B24EA82">
+    <End Type="CoffeeShopModel.Suppliers" Role="Suppliers" Multiplicity="1" />
+    <End Type="CoffeeShopModel.Purchases" Role="Purchases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="Purchases">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ReceiptIt__Recei__778AC167">
+    <End Type="CoffeeShopModel.Receipts" Role="Receipts" Multiplicity="1" />
+    <End Type="CoffeeShopModel.ReceiptItems" Role="ReceiptItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Receipts">
+        <PropertyRef Name="ReceiptID" />
+      </Principal>
+      <Dependent Role="ReceiptItems">
+        <PropertyRef Name="ReceiptID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Receipts__ShiftI__74AE54BC">
+    <End Type="CoffeeShopModel.Shifts" Role="Shifts" Multiplicity="1" />
+    <End Type="CoffeeShopModel.Receipts" Role="Receipts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shifts">
+        <PropertyRef Name="ShiftID" />
+      </Principal>
+      <Dependent Role="Receipts">
+        <PropertyRef Name="ShiftID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

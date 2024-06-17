@@ -1,0 +1,38 @@
+﻿<Window x:Class="CoffeeShop.Views.Cashier.AddRecipeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CoffeeShop.Views.Cashier"
+        mc:Ignorable="d"
+        Title="AddRecipeDialog" Height="350" Width="500">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Название продукта:" Grid.Row="0" Grid.Column="0" Margin="5"/>
+        <ComboBox x:Name="ProductComboBox" Grid.Row="0" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Text="Описание:" Grid.Row="1" Grid.Column="0" Margin="5"/>
+        <TextBox x:Name="DescriptionTextBox" Grid.Row="1" Grid.Column="1" Margin="5" TextWrapping="Wrap"/>
+
+        <TextBlock Text="Изображение:" Grid.Row="2" Grid.Column="0" Margin="5"/>
+        <Button Content="Выбрать изображение" Grid.Row="2" Grid.Column="1" Margin="5" Click="ChooseImageButton_Click"/>
+
+        <Image x:Name="SelectedImage" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Height="100" Stretch="Uniform"/>
+
+        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Сохранить" Width="100" Height="50" Margin="5" Click="SaveButton_Click"/>
+            <Button Content="Отмена" Width="100" Height="50" Margin="5" Click="CancelButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

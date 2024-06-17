@@ -1,0 +1,33 @@
+﻿<Page x:Class="CoffeeShop.Views.Cashier.StockManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CoffeeShop.Views.Cashier"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="900"
+      Title="StockManagementPage">
+
+    <Grid Background="#f0f0f0" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Меню навигации -->
+        <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Background="#ffffff" Margin="10"  VerticalAlignment="Stretch">
+            <TextBlock Text="Управление складом" FontSize="16" FontWeight="Bold" Foreground="#333" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+            <Button Content="Просмотр остатков" Click="ViewStock_Click" Margin="05" Style="{StaticResource NavButtonStyle}" Height="50" FontSize="16"/>
+            
+            <Button Content="Принять поставку" Click="ReceiveSupply_Click" Margin="5" Style="{StaticResource NavButtonStyle}" Height="50" Width="175" FontSize="16"/>
+            
+        </StackPanel>
+
+        <!-- Основной контент -->
+        <Frame x:Name="MainFrame" Grid.Row="1" Grid.Column="1" Margin="10" Background="#ffffff" Padding="20"/>
+    </Grid>
+</Page>

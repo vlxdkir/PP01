@@ -1,0 +1,48 @@
+﻿<Page x:Class="CoffeeShop.Views.Cashier.TehCardPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CoffeeShop.Views.Cashier"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TehCardPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+            <TextBox x:Name="SearchTextBox" Width="200" Margin="5" TextChanged="SearchTextBox_TextChanged_1" Style="{StaticResource textboxstyle}"/>
+        </StackPanel>
+
+        <ListBox x:Name="RecipeListBox" Grid.Row="1" Grid.Column="0" Margin="10" SelectionChanged="RecipeListBox_SelectionChanged" Style="{StaticResource listboxstyle}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Product.Name}" FontWeight="Bold"/>
+                        <TextBlock Text="Посмотреть рецепт"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+            <TextBlock Text="Описание:" FontSize="16" FontWeight="Bold"/>
+            <TextBlock x:Name="DescriptionTextBlock" TextWrapping="Wrap" Margin="5"/>
+            <TextBlock Text="Изображение:" FontSize="16" FontWeight="Bold"/>
+            <Image x:Name="RecipeImage" Margin="5" Stretch="Uniform" Source="{Binding Image}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <Button Content="Добавить рецепт" Click="AddRecipeButton_Click" Margin="5" Style="{StaticResource NavButtonStyle}"/>
+            <Button Content="Удалить рецепт" Click="DeleteRecipeButton_Click" Margin="5" Style="{StaticResource NavButtonStyle}"/>
+        </StackPanel>
+    </Grid>
+</Page>

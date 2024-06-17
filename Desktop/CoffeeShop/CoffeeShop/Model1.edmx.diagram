@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f170056f61494ca18dbdf49c7d48bcb9" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="CoffeeShopModel.Employees" Width="1.5" PointX="1.5" PointY="21" />
+        <EntityTypeShape EntityType="CoffeeShopModel.Product" Width="1.5" PointX="0.75" PointY="7.5" />
+        <EntityTypeShape EntityType="CoffeeShopModel.Purchases" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="CoffeeShopModel.ReceiptItems" Width="1.5" PointX="6" PointY="7.75" />
+        <EntityTypeShape EntityType="CoffeeShopModel.Receipts" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CoffeeShopModel.RecipeCards" Width="1.5" PointX="3" PointY="14.5" />
+        <EntityTypeShape EntityType="CoffeeShopModel.Sales" Width="1.5" PointX="3" PointY="17.25" />
+        <EntityTypeShape EntityType="CoffeeShopModel.Shifts" Width="1.5" PointX="1.5" PointY="0.875" />
+        <EntityTypeShape EntityType="CoffeeShopModel.Stock" Width="1.5" PointX="3" PointY="8.625" />
+        <EntityTypeShape EntityType="CoffeeShopModel.Suppliers" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="CoffeeShopModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="1" />
+        <AssociationConnector Association="CoffeeShopModel.FK__Shifts__Employee__71D1E811" />
+        <AssociationConnector Association="CoffeeShopModel.FK__Purchases__Produ__6C190EBB" />
+        <AssociationConnector Association="CoffeeShopModel.FK__ReceiptIt__Produ__787EE5A0" />
+        <AssociationConnector Association="CoffeeShopModel.FK__RecipeCar__Produ__09A971A2" />
+        <AssociationConnector Association="CoffeeShopModel.FK__Sales__ProductID__6EF57B66" />
+        <AssociationConnector Association="CoffeeShopModel.FK__Stock__ProductID__656C112C" />
+        <AssociationConnector Association="CoffeeShopModel.FK__Purchases__Suppl__6B24EA82" />
+        <AssociationConnector Association="CoffeeShopModel.FK__ReceiptIt__Recei__778AC167" />
+        <AssociationConnector Association="CoffeeShopModel.FK__Receipts__ShiftI__74AE54BC" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
