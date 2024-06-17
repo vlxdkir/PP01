@@ -15,7 +15,7 @@ namespace CoffeeShop
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class CoffeeShopEntities : DbContext
+    public partial class CoffeeShopEntities : DbContext, IDisposable
     {
         public CoffeeShopEntities()
             : base("name=CoffeeShopEntities")

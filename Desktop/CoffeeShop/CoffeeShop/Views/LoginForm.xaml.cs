@@ -36,7 +36,11 @@ namespace CoffeeShop.Views
             {
                 pinCodeBuilder.Append(button.Content.ToString());
                 UpdatePinCodeDisplay();
-                CheckPinCode();
+                if (pinCodeBuilder.Length > 3)
+                {
+                    CheckPinCode(pinCodeBuilder.ToString());
+                }
+                
             }
         }
 
@@ -47,15 +51,13 @@ namespace CoffeeShop.Views
             MessageBox.Show("Пин-код очищен");
         }
 
-        private void CheckPinCode()
+        public bool CheckPinCode(string enteredPinCode)
         {
-            if (pinCodeBuilder.Length == 4)
+            if (PincodeValidator.ValidatePincode(enteredPinCode, out string errorMessage))
             {
-                string enteredPinCode = pinCodeBuilder.ToString();
                 using (var context = new CoffeeShopEntities())
                 {
-                    var user = context.Employees
-                        .FirstOrDefault(u => u.Pincode == enteredPinCode);
+                    var user = context.Employees.FirstOrDefault(u => u.Pincode == enteredPinCode);
 
                     if (user != null)
                     {
@@ -77,14 +79,23 @@ namespace CoffeeShop.Views
                         }
 
                         this.Close();
+                        return true;
                     }
                     else
                     {
                         MessageBox.Show("Неверный ПИН-код. Попробуйте снова.");
                         pinCodeBuilder.Clear();
                         UpdatePinCodeDisplay();
+                        return false;
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show(errorMessage);
+                pinCodeBuilder.Clear();
+                UpdatePinCodeDisplay();
+                return false;
             }
         }
 

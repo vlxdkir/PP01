@@ -176,6 +176,7 @@
     <Compile Include="models\Shift.cs" />
     <Compile Include="models\ShiftManager.cs" />
     <Compile Include="models\StockManager.cs" />
+    <Compile Include="models\ValidPincode.cs" />
     <Compile Include="Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
