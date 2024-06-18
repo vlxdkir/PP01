@@ -54,7 +54,7 @@
                 <Button Content="Открыть кассовую смену" Grid.Row="1" Grid.Column="2" Margin="5" Style="{StaticResource ButtonStyle}" Click="OpenAdminShift_Click"/>
                 <Button Content="Закрыть кассовую смену" Grid.Row="2" Grid.Column="2" Margin="5" Style="{StaticResource ButtonStyle}" Click="CloseAdminShift_Click"/>
                 <Button Content="Поиск Чека" Grid.Row="3" Grid.Column="2" Margin="5" Style="{StaticResource ButtonStyle}" Click="SearchAdminReceipt_Click"/>
-                <Button Content="Гости(не реализовано)" Grid.Row="4" Grid.Column="2" Margin="5" Style="{StaticResource ButtonStyle}" />
+                
             </Grid>
         </Grid>
     </Border>

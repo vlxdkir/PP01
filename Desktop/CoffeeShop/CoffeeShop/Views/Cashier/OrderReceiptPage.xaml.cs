@@ -256,7 +256,7 @@ namespace CoffeeShop.Views.Cashier
                     };
                     context.ReceiptItems.Add(receiptItem);
 
-                    // Обновляем количество на складе
+                    
                     var stockItem = context.Stock.FirstOrDefault(s => s.ProductID == item.ProductID);
                     if (stockItem != null)
                     {

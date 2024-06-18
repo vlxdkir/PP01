@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoffeeShop.Views.Cashier"
         mc:Ignorable="d"
-        Title="AddRecipeDialog" Height="350" Width="500">
+        Title="Добавление рецепта" Height="350" Width="500">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
